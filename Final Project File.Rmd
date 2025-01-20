@@ -9,10 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Loading Packages
+# Importing Libraries
 
 ```{r}
-## loading packages
+## loading libraries
 library(ggplot2)
 library(tidyverse)
 library(ggthemes)
@@ -30,17 +30,17 @@ library(jpeg)
 
 ```{r}
 ## loading 2018 data
-state_carbon_emission <- read.csv("C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/Final Project/Data/state_carbon_emission.csv")
+state_carbon_emission <- read.csv("C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/engrd302wfall2023/Data/state_carbon_emission.csv")
 head(state_carbon_emission)
 
 state_df <- map_data("state")
 
 ## subsetting data
-state_population_2018 <- read.csv("C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/Final Project/Data/2018_state_population.csv")
+state_population_2018 <- read.csv("C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/engrd302wfall2023/Data/2018_state_population.csv")
 
-state_asthma_2018 <- read.csv("C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/Final Project/Data/2018_asthma_state_data.csv")
+state_asthma_2018 <- read.csv("C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/engrd302wfall2023/Data/2018_asthma_state_data.csv")
 
-state_tax_2018 <- read.csv("C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/Final Project/Data/2018_state_emission_tax_data.csv")
+state_tax_2018 <- read.csv("C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/engrd302wfall2023/Data/2018_state_emission_tax_data.csv")
 ```
 
 # Data Cleaning

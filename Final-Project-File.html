@@ -357,9 +357,9 @@ display: none;
 </div>
 
 
-<div id="loading-packages" class="section level1">
-<h1>Loading Packages</h1>
-<pre class="r"><code>## loading packages
+<div id="importing-libraries" class="section level1">
+<h1>Importing Libraries</h1>
+<pre class="r"><code>## loading libraries
 library(ggplot2)
 library(tidyverse)</code></pre>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.3.3</code></pre>
@@ -425,7 +425,7 @@ library(viridis)</code></pre>
 <div id="separating-data" class="section level1">
 <h1>Separating Data</h1>
 <pre class="r"><code>## loading 2018 data
-state_carbon_emission &lt;- read.csv(&quot;C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/Final Project/Data/state_carbon_emission.csv&quot;)
+state_carbon_emission &lt;- read.csv(&quot;C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/engrd302wfall2023/Data/state_carbon_emission.csv&quot;)
 head(state_carbon_emission)</code></pre>
 <pre><code>##        State X1970 X1971 X1972 X1973 X1974 X1975 X1976 X1977 X1978 X1979 X1980
 ## 1    Alabama 102.6  98.5 104.9 109.6 108.8 107.8 108.1 111.7 106.6 111.6 107.1
@@ -465,11 +465,11 @@ head(state_carbon_emission)</code></pre>
 <pre class="r"><code>state_df &lt;- map_data(&quot;state&quot;)
 
 ## subsetting data
-state_population_2018 &lt;- read.csv(&quot;C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/Final Project/Data/2018_state_population.csv&quot;)
+state_population_2018 &lt;- read.csv(&quot;C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/engrd302wfall2023/Data/2018_state_population.csv&quot;)
 
-state_asthma_2018 &lt;- read.csv(&quot;C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/Final Project/Data/2018_asthma_state_data.csv&quot;)
+state_asthma_2018 &lt;- read.csv(&quot;C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/engrd302wfall2023/Data/2018_asthma_state_data.csv&quot;)
 
-state_tax_2018 &lt;- read.csv(&quot;C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/Final Project/Data/2018_state_emission_tax_data.csv&quot;)</code></pre>
+state_tax_2018 &lt;- read.csv(&quot;C:/Users/13015/OneDrive - Emory University/Documents/Emory/Fall_23/ENGRD 302W/engrd302wfall2023/Data/2018_state_emission_tax_data.csv&quot;)</code></pre>
 </div>
 <div id="data-cleaning" class="section level1">
 <h1>Data Cleaning</h1>
