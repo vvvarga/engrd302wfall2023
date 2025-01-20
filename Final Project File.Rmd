@@ -211,70 +211,57 @@ state_tax_map_data_2018 %>%
 ```{r}
 ## mapping change in carbon emissions 2018-19
 pct_emission_change_map <- ggplot(state_final_df_2018, aes(x=long, y=lat)) +
-        geom_polygon(aes(group=group, fill = pct_change), color="yellow") + 
-        scale_fill_viridis(option="magma") + 
-        geom_polygon(data = state_map_data, aes(group=group), color = "black", fill = NA) + 
+        geom_polygon(aes(group = group, fill = pct_change), color="yellow") + 
+        scale_fill_viridis(discrete = FALSE) + 
+        geom_polygon(data = state_map_data, aes(group = group), color = "black", fill = NA) + 
         theme_void()+ coord_quickmap() +
-  labs(fill = "Change in Carbon Emission 2018-19") +
-  theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"),
-        legend.title = element_text(size = 8),
-        legend.key.size = unit(0.5, "cm")) +
+  labs(fill = "Change in Carbon Emission 
+2018-2019") +
   theme(plot.background = element_rect(fill = "white"))
-
-pct_emission_change_map
-
-ggsave("pct_emission_change_map.png", pct_emission_change_map)
+print(pct_emission_change_map)
+ggsave("Change in Carbon Emissions Map 2018-2019.png", pct_emission_change_map)
 
 ## mapping 2018 carbon emissions
 emission_map_2018 <- ggplot(state_final_df_2018, aes(x=long, y=lat)) +
-        geom_polygon(aes(group=group, fill = std_2018_emission), color="yellow") + 
-        scale_fill_viridis(option="magma") + 
-        geom_polygon(data = state_map_data, aes(group=group), color = "black", fill = NA) + 
+        geom_polygon(aes(group = group, fill = std_2018_emission), color="yellow") + 
+        scale_fill_viridis(discrete = FALSE) + 
+        geom_polygon(data = state_map_data, aes(group = group), color = "black", fill = NA) + 
         theme_void() + coord_quickmap() +
-  labs(fill = "2018 Carbon Emissions (metric ton)") +
-  theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"),
-        legend.title = element_text(size = 8),
-        legend.key.size = unit(0.5, "cm")) +
+  labs(fill = "2018 Carbon Emissions 
+(metric tons)") +
   theme(plot.background = element_rect(fill = "white"))
+print(emission_map_2018)
+ggsave("Raw Carbon Emissions Map 2018.png", emission_map_2018)
 
-emission_map_2018
-
-ggsave("emission_map_2018.png", emission_map_2018)
-
-## raw asthma diagnosis 2018
+## population asthma diagnosis 2018
 asthma_population_2018_map <- ggplot(state_final_df_2018, aes(x=long, y=lat)) +
-        geom_polygon(aes(group=group, fill = asthma_population), color="yellow") + 
-        scale_fill_viridis(option="magma") + 
-        geom_polygon(data = state_map_data, aes(group=group), color = "black", fill = NA) + 
+        geom_polygon(aes(group = group, fill = asthma_population), color="yellow") + 
+        scale_fill_viridis(discrete = FALSE) + 
+        geom_polygon(data = state_map_data, aes(group = group), color = "black", fill = NA) + 
         theme_void() + coord_quickmap() +
-  labs(fill = "Count Asthma Diagnosis 2018") +
-  theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"),
-        legend.title = element_text(size = 8),
-        legend.key.size = unit(0.5, "cm")) +
+  labs(fill = "Count Asthma Diagnosis 
+2018") +
   theme(plot.background = element_rect(fill = "white"))
-
-asthma_population_2018_map
-
-ggsave("asthma_population_2018_map.png", asthma_population_2018_map)
+print(asthma_population_2018_map)
+ggsave("Population Asthma Diagnosis Map 2018.png", asthma_population_2018_map)
 
 ## pct population w/ asthma 2018
 pct_asthma_2018_map <- ggplot(state_final_df_2018, aes(x=long, y=lat)) +
-        geom_polygon(aes(group=group, fill = pct_asthma_population), color="yellow") + 
-        scale_fill_viridis(option="magma") + 
-        geom_polygon(data = state_map_data, aes(group=group), color = "black", fill = NA) + 
+        geom_polygon(aes(group = group, fill = pct_asthma_population), color="yellow") + 
+        scale_fill_viridis(discrete = FALSE) + 
+        geom_polygon(data = state_map_data, aes(group = group), color = "black", fill = NA) + 
         theme_void()+ coord_quickmap() +
-  labs(fill = "Percent Total Population Asthma Diagnosis 2018") +
+  labs(fill = "Percent Total Population 
+Asthma Diagnosis 2018") +
   theme(plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"),
         legend.title = element_text(size = 8),
         legend.key.size = unit(0.5, "cm")) +
   theme(plot.background = element_rect(fill = "white"))
-
-pct_asthma_2018_map
-
-ggsave("pct_asthma_2018_map.png", pct_asthma_2018_map)
+print(pct_asthma_2018_map)
+ggsave("Percent Asthma Diagnosis Map 2018.png", pct_asthma_2018_map)
 ```
 
-## Creating Asthma Summary
+## Asthma Summary
 
 ```{r}
 ## asthma 2018 df
@@ -290,7 +277,7 @@ head(asthma_2018)
 summary(asthma_2018)
 ```
 
-## Asthma Data Visualization
+## Asthma Data
 
 ```{r}
 ## horizontal bar graph
@@ -302,13 +289,12 @@ asthma_bar_2018 <- ggplot(asthma_2018, aes(y = fct_reorder(state, pct_population
   labs(title = "Percent Asthma Diagnosis Per State 2018",
        x = "Percent Total Population Asthma Diagnosis 2018",
        y = "State")
+print(asthma_bar_2018)
 
-asthma_bar_2018
-
-ggsave("asthma_bar_2018.png", asthma_bar_2018, height = 8)
+ggsave("Percent Asthma Diagnosis Bar Graph 2018.png", asthma_bar_2018, height = 8)
 ```
 
-## Emission Data Visualization
+## Tax & Emission Data
 
 ```{r}
 ## 2018 emission tax histogram
@@ -322,13 +308,13 @@ state_tax_bar_2018 <- ggplot(state_tax_2018,
        x = "Emission Tax",
        y = "State")
 
-state_tax_bar_2018
+print(state_tax_bar_2018)
 
-ggsave("state_tax_bar_2018.png", state_tax_bar_2018, height = 8)
+ggsave("Emission Tax Bar Graph 2018.png", state_tax_bar_2018, height = 8)
 
 ```
 
-## Creating Emission Summary
+## Emission Summary
 
 ```{r}
 ## preparing 2018 emission data
@@ -354,21 +340,23 @@ summary(state_emission_2018)
 
 ```
 
-## Emission Data per Capita Visualization
+## Emission per Capita Bar Graph
 
 ```{r}
-## emission per capital horizontal bar graph
-state_emission_2018_plot <- ggplot(state_emission_2018, aes(y=fct_reorder(state, emission_per_capita) %>% fct_rev(), x=emission_per_capita, fill = state))+
+## emission per capita horizontal bar graph
+state_emission_2018_plot <- ggplot(state_emission_2018, aes(y=fct_reorder(state, emission_per_capita) %>% fct_rev(), x = emission_per_capita, fill = state))+
    geom_col() +
   scale_fill_viridis(discrete = TRUE) +
   theme(legend.position = "none",
         plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm")) +
-  labs(title = "Carbon Emission (metric ton) per Capita",
-       x = "Carbon Emission (metric ton)",
+  labs(title = "Carbon Emission per Capita (metric tons)",
+       x = "Carbon Emission (metric tons)",
        y = "State")
 
 state_emission_2018_plot
 
-ggsave("state_emission_2018_plot.png", state_emission_2018_plot, height = 8)
+ggsave("Carbon Emission per Capita Bar Graph.png", state_emission_2018_plot, height = 8)
 
 ```
+
+## Carbon Emissions per Capita Map
